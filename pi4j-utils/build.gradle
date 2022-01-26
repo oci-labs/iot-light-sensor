@@ -1,0 +1,34 @@
+plugins {
+    id("io.micronaut.library") version "3.0.2"
+    id "java-library"
+}
+
+version = "0.1"
+group = "com.objectcomputing.iot"
+
+repositories {
+    mavenCentral()
+}
+
+micronaut {
+    processing {
+        incremental(true)
+        annotations("com.objectcomputing.iot.*")
+    }
+}
+
+dependencies {
+    implementation("io.micronaut:micronaut-runtime")
+    implementation("jakarta.annotation:jakarta.annotation-api")
+    runtimeOnly("ch.qos.logback:logback-classic")
+
+    api 'com.pi4j:pi4j-core:2.0'
+    api 'com.pi4j:pi4j-plugin-raspberrypi:2.0'
+    api 'com.pi4j:pi4j-plugin-pigpio:2.0'
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion("11")
+    targetCompatibility = JavaVersion.toVersion("11")
+}
+

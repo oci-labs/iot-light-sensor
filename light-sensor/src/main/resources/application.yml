@@ -1,0 +1,24 @@
+micronaut:
+  application:
+    name: photosensor-demo
+pi4j:
+  digital-input:
+    photo-resistor-input:
+      name: Photo Resistor Input
+      address: 4
+      debounce: 100000
+      pull: PULL_DOWN
+      provider: pigpio-digital-input
+  digital-output:
+    led:
+      name: LED Output
+      address: 22
+      shutdown: LOW
+      initial: LOW
+      provider: pigpio-digital-output
+    photo-resistor-output:
+      name: Photo Resistor Output
+      address: 27
+      shutdown: LOW
+      initial: HIGH
+      provider: pigpio-digital-output
