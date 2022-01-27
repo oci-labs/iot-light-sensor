@@ -40,7 +40,7 @@ public class LightSensorHelper {
         log.info("Initializing PhotoResistor");
 
         sensorInput.addListener(e -> {
-            log.trace("input listener notified");
+            log.trace("input state change: {}", sensorInput.state().toString());
             if (sensorInput.isHigh()) {
                 endTime = System.currentTimeMillis();
                 darknessValue = (int) (endTime - startTime);
@@ -50,7 +50,6 @@ public class LightSensorHelper {
                 startTime = System.currentTimeMillis();
                 sensorOutput.high();
             }
-            log.trace("INPUT state change: {}", sensorInput.state().toString());
         });
     }
 
