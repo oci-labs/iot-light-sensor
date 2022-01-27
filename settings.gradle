@@ -1,1 +1,3 @@
 include 'light-sensor', 'pi4j-utils'
+
+rootProject.name='iot-light-sensor-demo'
